@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    header
+      h1 Pets - Custom Object Records
+      if error
+        p(style="color: red") Error: #{error}
+      a(href='/update-cobj') Add to this table
+    main
+      if records.length === 0
+        p No records found.
+      else
+        table
+          thead
+            tr
+              th Name
+              th Breed
+              th Description
+          tbody
+            each record in records
+              tr
+                td= record.properties.name || ''
+                td= record.properties.breed || ''
+                td= record.properties.description || ''
+    footer
+      p Generated for Integrating With HubSpot I: Foundations Practicum
